@@ -1,15 +1,14 @@
-from flask import render_template, request, redirect, flash,url_for
+from flask import render_template, request, redirect, flash,url_for,Response
 from models import Category, Todo, Priority, db
 from todoapp import app
 
-
 @app.route('/')
 def list_all():
-    return render_template(
-        'list.html',
-        categories=Category.query.all(),
-        todos=Todo.query.all(),#join(Priority).order_by(Priority.value.desc())
-    )
+    return 
+
+@app.route('/list-all')
+def list_all():
+    return Response('hello world!');
 
 
 @app.route('/<name>')
